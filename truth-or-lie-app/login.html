@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TruthFeed — Login</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+  <div class="glow-orb orb1"></div>
+  <div class="glow-orb orb2"></div>
+
+  <div class="auth-wrapper">
+
+    <!-- LOGO -->
+    <div class="brand">
+      <span class="logo">// TRUTHFEED</span>
+      <p class="tagline">Truth or Lie — you decide.</p>
+    </div>
+
+    <!-- CARD -->
+    <div class="auth-card">
+
+      <!-- TABS -->
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-form="login">Sign In</button>
+        <button class="auth-tab" data-form="signup">Sign Up</button>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <form id="login" class="auth-form active" novalidate>
+        <div class="field">
+          <label>Email</label>
+          <input type="email" id="login-email" placeholder="you@example.com" autocomplete="email"/>
+          <span class="field-error" id="login-email-err"></span>
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <div class="input-wrap">
+            <input type="password" id="login-pass" placeholder="••••••••" autocomplete="current-password"/>
+            <button type="button" class="toggle-pass" data-target="login-pass">👁</button>
+          </div>
+          <span class="field-error" id="login-pass-err"></span>
+        </div>
+        <div class="form-row">
+          <label class="checkbox-label">
+            <input type="checkbox" id="remember"/> Remember me
+          </label>
+          <a href="#" class="link">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn-primary">Sign In</button>
+        <div class="divider"><span>or continue with</span></div>
+        <div class="social-btns">
+          <button type="button" class="btn-social">🌐 Google</button>
+          <button type="button" class="btn-social">🐦 Twitter</button>
+        </div>
+      </form>
+
+      <!-- SIGNUP FORM -->
+      <form id="signup" class="auth-form" novalidate>
+        <div class="field">
+          <label>Username</label>
+          <input type="text" id="signup-name" placeholder="CuriousFox42" autocomplete="username"/>
+          <span class="field-error" id="signup-name-err"></span>
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input type="email" id="signup-email" placeholder="you@example.com" autocomplete="email"/>
+          <span class="field-error" id="signup-email-err"></span>
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <div class="input-wrap">
+            <input type="password" id="signup-pass" placeholder="Min. 8 characters" autocomplete="new-password"/>
+            <button type="button" class="toggle-pass" data-target="signup-pass">👁</button>
+          </div>
+          <div class="strength-bar">
+            <div class="strength-fill" id="strength-fill"></div>
+          </div>
+          <span class="strength-label" id="strength-label"></span>
+          <span class="field-error" id="signup-pass-err"></span>
+        </div>
+        <div class="field">
+          <label>Confirm Password</label>
+          <div class="input-wrap">
+            <input type="password" id="signup-confirm" placeholder="Repeat password" autocomplete="new-password"/>
+            <button type="button" class="toggle-pass" data-target="signup-confirm">👁</button>
+          </div>
+          <span class="field-error" id="signup-confirm-err"></span>
+        </div>
+        <label class="checkbox-label terms">
+          <input type="checkbox" id="terms"/>
+          I agree to the <a href="#" class="link">Terms of Service</a>
+        </label>
+        <span class="field-error" id="terms-err"></span>
+        <button type="submit" class="btn-primary">Create Account</button>
+        <div class="divider"><span>or continue with</span></div>
+        <div class="social-btns">
+          <button type="button" class="btn-social">🌐 Google</button>
+          <button type="button" class="btn-social">🐦 Twitter</button>
+        </div>
+      </form>
+
+    </div>
+    <!-- /auth-card -->
+
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>

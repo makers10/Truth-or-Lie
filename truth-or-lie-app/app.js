@@ -140,5 +140,10 @@ function escapeHtml(str) {
   return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
+// ── Auth guard ──────────────────────────────────────────
+if (!sessionStorage.getItem('tf_authed')) {
+  window.location.href = 'login.html';
+}
+
 // ── Init ────────────────────────────────────────────────
 renderFeed();
