@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Truth or Lie Feed</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <span class="logo">🔍 TruthFeed</span>
+    <div class="nav-tabs">
+      <button class="tab active" data-tab="feed">Feed</button>
+      <button class="tab" data-tab="map">Emotion Map</button>
+    </div>
+  </nav>
+
+  <!-- FEED TAB -->
+  <section id="feed" class="tab-content active">
+    <div class="feed-header">
+      <h2>What do you think?</h2>
+      <button id="add-post-btn">+ Post a Claim</button>
+    </div>
+
+    <!-- Post composer -->
+    <div id="composer" class="composer hidden">
+      <textarea id="post-input" placeholder="Write something true... or not 😏" maxlength="280"></textarea>
+      <div class="composer-actions">
+        <select id="post-category">
+          <option value="science">🔬 Science</option>
+          <option value="history">📜 History</option>
+          <option value="pop">🎤 Pop Culture</option>
+          <option value="random">🎲 Random</option>
+        </select>
+        <button id="submit-post">Post It</button>
+      </div>
+    </div>
+
+    <div id="posts-container"></div>
+  </section>
+
+  <!-- EMOTION MAP TAB -->
+  <section id="map" class="tab-content">
+    <div id="emotion-map"></div>
+    <div id="emotion-panel" class="emotion-panel hidden">
+      <button id="close-panel">✕</button>
+      <h3 id="panel-location"></h3>
+      <p id="panel-mood"></p>
+      <div id="panel-posts"></div>
+    </div>
+    <div class="map-legend">
+      <span>😄 Happy</span>
+      <span>😔 Stressed</span>
+      <span>😶 Lonely</span>
+      <span>😡 Angry</span>
+      <span>😌 Calm</span>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="data.js"></script>
+  <script src="map.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
