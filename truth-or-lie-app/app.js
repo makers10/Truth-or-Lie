@@ -74,8 +74,12 @@ function renderFeed() {
   });
 }
 
+const AVATARS = ['🦊','🐺','🦁','🐸','🦋','🐙','🦄','🐬','🦅','🐲'];
+const NAMES   = ['Anonymous Fox','Shadow Wolf','Curious Lion','Green Frog','Night Owl',
+                 'Deep Octopus','Wild Unicorn','Blue Dolphin','Eagle Eye','Fire Dragon'];
+
 function buildPostCard(post) {
-  const total = post.truthVotes + post.lieVotes;
+  const total    = post.truthVotes + post.lieVotes;
   const truthPct = total ? Math.round((post.truthVotes / total) * 100) : 50;
   const liePct   = 100 - truthPct;
   const userVote = voted[post.id];
@@ -93,31 +97,38 @@ function buildPostCard(post) {
     : 'Be the first to vote';
 
   const disabledAttr = userVote ? 'disabled' : '';
+  const avatarIdx = post.id % AVATARS.length;
 
   return `
     <div class="${cardClass}" data-id="${post.id}">
-      <div class="post-meta">
-        <span class="post-category">${categoryLabel}</span>
-        <span>${post.time}</span>
+      <div class="post-top">
+        <div class="post-author">
+          <div class="author-avatar">${AVATARS[avatarIdx]}</div>
+          <div class="author-info">
+            <span class="author-name">${NAMES[avatarIdx]}</span>
+            <span class="author-time">${post.time}</span>
+          </div>
+        </div>
+        <span class="post-badge">${categoryLabel}</span>
       </div>
       <p class="post-text">${escapeHtml(post.text)}</p>
       <div class="vote-bar-wrap">
         <div class="vote-bar-track">
-          <div class="vote-bar-fill" style="width:${truthPct}%"></div>
+          <div class="vote-bar-truth" style="width:${truthPct}%"></div>
         </div>
         <div class="vote-counts">
-          <span>✅ Truth ${post.truthVotes}</span>
-          <span>❌ Lie ${post.lieVotes}</span>
+          <span class="truth-count">✅ Truth · ${post.truthVotes}</span>
+          <span class="lie-count">❌ Lie · ${post.lieVotes}</span>
         </div>
       </div>
       <div class="vote-buttons">
         <button class="vote-btn truth ${userVote === 'truth' ? 'selected' : ''}"
           data-id="${post.id}" data-type="truth" ${disabledAttr}>
-          ✅ Truth
+          ✅ That's True
         </button>
         <button class="vote-btn lie ${userVote === 'lie' ? 'selected' : ''}"
           data-id="${post.id}" data-type="lie" ${disabledAttr}>
-          ❌ Lie
+          ❌ That's a Lie
         </button>
       </div>
       <p class="verdict">${verdictText}</p>

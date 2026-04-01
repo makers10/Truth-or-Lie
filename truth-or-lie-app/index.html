@@ -3,53 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Truth or Lie Feed</title>
+  <title>⚡ TruthFeed</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
 
   <nav class="navbar">
-    <span class="logo">🔍 TruthFeed</span>
+    <span class="logo">// TRUTHFEED</span>
     <div class="nav-tabs">
-      <button class="tab active" data-tab="feed">Feed</button>
-      <button class="tab" data-tab="map">Emotion Map</button>
+      <button class="tab active" data-tab="feed">🔥 Feed</button>
+      <button class="tab" data-tab="map">🧭 Emotion Map</button>
     </div>
   </nav>
 
-  <!-- FEED TAB -->
+  <!-- FEED -->
   <section id="feed" class="tab-content active">
-    <div class="feed-header">
-      <h2>What do you think?</h2>
-      <button id="add-post-btn">+ Post a Claim</button>
+
+    <!-- Composer trigger -->
+    <div class="composer-trigger" id="add-post-btn">
+      <div class="avatar-placeholder">👤</div>
+      <span>Drop a claim — truth or lie, you decide...</span>
     </div>
 
-    <!-- Post composer -->
+    <!-- Composer -->
     <div id="composer" class="composer hidden">
       <textarea id="post-input" placeholder="Write something true... or not 😏" maxlength="280"></textarea>
-      <div class="composer-actions">
+      <div class="composer-footer">
         <select id="post-category">
           <option value="science">🔬 Science</option>
           <option value="history">📜 History</option>
           <option value="pop">🎤 Pop Culture</option>
           <option value="random">🎲 Random</option>
         </select>
-        <button id="submit-post">Post It</button>
+        <button class="btn-post" id="submit-post">Post It</button>
       </div>
     </div>
 
+    <p class="feed-label">Trending Claims</p>
     <div id="posts-container"></div>
+
   </section>
 
-  <!-- EMOTION MAP TAB -->
+  <!-- EMOTION MAP -->
   <section id="map" class="tab-content">
     <div id="emotion-map"></div>
+
     <div id="emotion-panel" class="emotion-panel hidden">
-      <button id="close-panel">✕</button>
-      <h3 id="panel-location"></h3>
-      <p id="panel-mood"></p>
+      <div class="panel-header">
+        <div>
+          <p id="panel-location"></p>
+          <p id="panel-mood"></p>
+        </div>
+        <button id="close-panel">✕</button>
+      </div>
       <div id="panel-posts"></div>
     </div>
+
     <div class="map-legend">
       <span>😄 Happy</span>
       <span>😔 Stressed</span>
