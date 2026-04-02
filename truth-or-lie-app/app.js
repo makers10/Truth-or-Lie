@@ -260,3 +260,4 @@ function showToast(msg) {
 // ── INIT ──────────────────────────────────────────────────────────────────────
 renderFeed();
 renderProfile();
+initDailyBriefing();
