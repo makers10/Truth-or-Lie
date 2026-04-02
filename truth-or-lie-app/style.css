@@ -488,3 +488,224 @@ body::before {
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+/* ── PROFILE PANEL (navbar) ─────────────────────────────────────────────── */
+.profile-panel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--card2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 8px 14px;
+  min-width: 220px;
+  font-size: 0.8rem;
+}
+
+.profile-animal { font-size: 1.4rem; line-height: 1; }
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.profile-name {
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--text);
+}
+
+.profile-xp {
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.xp-bar-track {
+  height: 3px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 3px;
+}
+
+.xp-bar-fill {
+  height: 100%;
+  background: var(--neon-green);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+  box-shadow: 0 0 6px rgba(168,85,247,0.5);
+}
+
+.dual-identity {
+  font-size: 0.75rem;
+  color: var(--muted);
+  border-left: 1px solid var(--border);
+  padding-left: 10px;
+  cursor: default;
+}
+
+/* ── PRIVATE TOGGLE (composer) ──────────────────────────────────────────── */
+.private-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  cursor: pointer;
+  font-weight: 600;
+  user-select: none;
+}
+
+.private-toggle input { accent-color: var(--neon-green); cursor: pointer; }
+
+/* ── TOAST ───────────────────────────────────────────────────────────────── */
+#toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 9999;
+  white-space: nowrap;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ── NIGHT FEED ──────────────────────────────────────────────────────────── */
+#night {
+  max-width: 660px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+.night-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.night-title {
+  display: block;
+  font-family: 'Syne', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #a78bfa;
+  text-shadow: 0 0 20px rgba(167,139,250,0.4);
+  margin-bottom: 6px;
+}
+
+.night-sub {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.night-btn {
+  background: #4c1d95 !important;
+  box-shadow: 0 0 20px rgba(139,92,246,0.3) !important;
+  color: #e9d5ff !important;
+}
+
+.night-timer-label {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.night-card {
+  background: #0a0a14;
+  border: 1px solid #1e1030;
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  margin-bottom: 14px;
+  transition: all 0.25s;
+  position: relative;
+}
+
+.night-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  background: radial-gradient(ellipse at top left, rgba(139,92,246,0.04), transparent 60%);
+  pointer-events: none;
+}
+
+.night-card:hover {
+  border-color: #2e1065;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+}
+
+.night-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.night-anon {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #7c3aed;
+  letter-spacing: 0.5px;
+}
+
+.night-timer {
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.night-text {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #c4b5fd;
+  margin-bottom: 16px;
+}
+
+.night-reactions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.reaction-btn {
+  background: rgba(139,92,246,0.08);
+  border: 1px solid #2e1065;
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 0.82rem;
+  color: #a78bfa;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+}
+
+.reaction-btn:hover {
+  background: rgba(139,92,246,0.18);
+  border-color: #7c3aed;
+  transform: scale(1.05);
+}
+
+.night-empty {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  padding: 60px 0;
+}

@@ -1,13 +1,100 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>truth-or-lie-app</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>⚡ TruthFeed</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <span class="logo">// TRUTHFEED</span>
+    <div class="nav-tabs">
+      <button class="tab active" data-tab="feed">🔥 Feed</button>
+      <button class="tab" data-tab="night">🌙 Night Feed</button>
+      <button class="tab" data-tab="map">🧭 Emotion Map</button>
+    </div>
+    <!-- Profile pill in navbar -->
+    <div id="profile-panel" class="profile-panel"></div>
+  </nav>
+
+  <!-- ── FEED ── -->
+  <section id="feed" class="tab-content active">
+
+    <div class="composer-trigger" id="add-post-btn">
+      <div class="avatar-placeholder">👤</div>
+      <span>Drop a claim — truth or lie, you decide...</span>
+    </div>
+
+    <div id="composer" class="composer hidden">
+      <textarea id="post-input" placeholder="Write something true... or not 😏" maxlength="280"></textarea>
+      <div class="composer-footer">
+        <select id="post-category">
+          <option value="science">🔬 Science</option>
+          <option value="history">📜 History</option>
+          <option value="pop">🎤 Pop Culture</option>
+          <option value="random">🎲 Random</option>
+        </select>
+        <label class="private-toggle" title="Post as your hidden animal identity">
+          <input type="checkbox" id="post-private" />
+          🎭 Private
+        </label>
+        <button class="btn-post" id="submit-post">Post It</button>
+      </div>
+    </div>
+
+    <p class="feed-label">Trending Claims</p>
+    <div id="posts-container"></div>
+  </section>
+
+  <!-- ── NIGHT FEED ── -->
+  <section id="night" class="tab-content">
+    <div class="night-header">
+      <span class="night-title">🌙 Night Confessions</span>
+      <span class="night-sub">Anonymous · Auto-deletes in a few hours · No judgement</span>
+    </div>
+    <div class="composer-trigger" id="night-post-btn">
+      <div class="avatar-placeholder">🌙</div>
+      <span>Confess something... it disappears by morning.</span>
+    </div>
+    <div id="night-composer" class="composer hidden">
+      <textarea id="night-input" placeholder="Say what you really feel... 🌙" maxlength="280"></textarea>
+      <div class="composer-footer">
+        <span class="night-timer-label">⏳ Deletes in 6 hours</span>
+        <button class="btn-post night-btn" id="submit-night">Confess</button>
+      </div>
+    </div>
+    <div id="night-posts-container"></div>
+  </section>
+
+  <!-- ── EMOTION MAP ── -->
+  <section id="map" class="tab-content">
+    <div id="emotion-map"></div>
+    <div id="emotion-panel" class="emotion-panel hidden">
+      <div class="panel-header">
+        <div>
+          <p id="panel-location"></p>
+          <p id="panel-mood"></p>
+        </div>
+        <button id="close-panel">✕</button>
+      </div>
+      <div id="panel-posts"></div>
+    </div>
+    <div class="map-legend">
+      <span>😄 Happy</span>
+      <span>😔 Stressed</span>
+      <span>😶 Lonely</span>
+      <span>😡 Angry</span>
+      <span>😌 Calm</span>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="data.js"></script>
+  <script src="map.js"></script>
+  <script src="night.js"></script>
+  <script src="app.js"></script>
+</body>
 </html>
